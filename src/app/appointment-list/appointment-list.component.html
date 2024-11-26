@@ -2,7 +2,12 @@
   <input
     [(ngModel)]="newAppointmentTitle"
     placeholder="Appointment description"
+    type="text"
   />
-  <input [(ngModel)]="newAppontmentDate" placeholder="Appointment date" />
+  <input
+    [(ngModel)]="newAppontmentDate"
+    placeholder="Appointment date"
+    type="date"
+  />
   <button (click)="addAppointment()">Add</button>
 </div>

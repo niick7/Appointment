@@ -7,10 +7,20 @@ import { Appointment } from '../models/appointment';
   styleUrls: ['./appointment-list.component.css'],
 })
 export class AppointmentListComponent {
-  newAppointmentTitle: String = '';
+  newAppointmentTitle: string = '';
   newAppontmentDate: Date = new Date();
   appointments: Appointment[] = [];
   addAppointment() {
-    console.log(this.newAppointmentTitle + ' ' + this.newAppontmentDate);
+    if (this.newAppointmentTitle.trim().length && this.newAppontmentDate) {
+      let newAppointment: Appointment = {
+        id: Date.now(),
+        title: this.newAppointmentTitle,
+        date: this.newAppontmentDate,
+      };
+
+      this.appointments.push(newAppointment);
+      this.newAppointmentTitle = '';
+      this.newAppontmentDate = new Date();
+    }
   }
 }
